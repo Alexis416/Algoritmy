@@ -4,7 +4,7 @@ from multiplication import hash_multiplication
 text = input("Введите текст: ")
 print("Выберете метод хэширования: \n"
       "1. Умножение \n"
-      "2. CRC-32 ")
+      "2. CRC-16 ")
 choice = input("Введите номер: ")
 
 if choice == "1":
