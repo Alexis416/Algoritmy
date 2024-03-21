@@ -6,12 +6,12 @@ def crc16(text):
     message = message + '0' * (len(g) - 1)
 
     word = message[0:len(g)]
-    degree = len(g) - 1
-    while degree < len(message):
+    index = len(g) - 1
+    while index < len(message):
         word = bin(int(word, 2) ^ int(g, 2))[2:]
         while len(word) < len(g):
-            degree += 1
-            if degree < len(message):
-                word += message[degree]
+            index += 1
+            if index < len(message):
+                word += message[index]
             else:
                 return hex(int(word, 2))
