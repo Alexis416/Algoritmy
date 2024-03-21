@@ -1,0 +1,13 @@
+a = input("Введите текст:")
+
+
+def longestPrefix(s):
+    for i in range(len(s) - 1, 0, -1):
+        prefix = s[:i]
+        suffix = s[-i:]
+        if prefix == suffix:
+            return prefix
+    return ""
+
+
+print(longestPrefix(a))
