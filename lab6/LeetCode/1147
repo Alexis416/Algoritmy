@@ -1,0 +1,33 @@
+a = input("Введите текст:")
+
+
+def longestDecomposition(text):
+    n = len(text)
+    start_left = 0
+    end_left = 0
+    end_right = n - 1
+    start_right = n - 1
+
+    str_l, str_r = "", ""
+    cnt = 0
+
+    while end_left < start_right:  # пока мы не дошли до середины, пок у нас не будут пересекаться подстроки
+        str_l += text[end_left]
+        str_r = text[start_right] + str_r
+
+        if str_l == str_r:  # если подстроки совпали
+            start_left = end_left + 1
+            end_right = start_right - 1
+            cnt += 2
+            str_l, str_r = "", ""
+
+        end_left += 1
+        start_right -= 1
+
+    if start_left <= end_right:  # если какая-то подстрока осталась там внутри, которую тоже надо учесть
+        cnt += 1
+
+    return cnt
+
+
+print(longestDecomposition(a))
