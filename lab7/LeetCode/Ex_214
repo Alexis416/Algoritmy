@@ -1,0 +1,13 @@
+a = input("Введите слово: ")
+
+
+def shortestPalindrome(s):
+    n = len(s)
+    max_pref = 0
+    for i in range(n):
+        if s[:i + 1] == s[:i + 1][::-1]:
+            max_pref = i + 1
+    return s[max_pref:][::-1] + s
+
+
+print(shortestPalindrome(a))
