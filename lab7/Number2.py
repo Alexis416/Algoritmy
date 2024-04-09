@@ -41,7 +41,6 @@ text_three = [" ".join(text[i: i + 3]) for i in range(len(text) - 2)]
 hash_text_three = []
 for three in text_three:
     hash_text_three.append(hash_fun(three))
-print(hash_text_three)
 
 wiki_page_three = [" ".join(wiki_page[i: i + 3]) for i in range(len(wiki_page) - 2)]
 hash_wiki_page_three = []
