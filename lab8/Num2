@@ -1,0 +1,30 @@
+import aiohttp
+import asyncio
+
+API_TOKEN = '6899165791:AAE-k-Jm4V7Fml17Njo4CNaaejj5QsrvmYo'
+
+
+async def send_telegram_message(chat_id, text):
+    url = f'https://api.telegram.org/bot{API_TOKEN}/sendMessage'
+    params = {
+        'chat_id': chat_id,
+        'text': text
+    }
+
+    async with aiohttp.ClientSession() as session:
+        async with session.post(url, data=params) as response:
+            response_json = await response.json()
+            return response_json
+
+
+async def main():
+    chat_id = '5169478837'
+    text = 'Hello, Telegram API! Это сообщение было послано в бот и показывает, что программа рабочая'
+
+    response = await send_telegram_message(chat_id, text)
+    print(response)
+
+
+if __name__ == '__main__':
+    loop = asyncio.get_event_loop()
+    loop.run_until_complete(main())
