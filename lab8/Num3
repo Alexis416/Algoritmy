@@ -1,0 +1,21 @@
+import asyncio
+import codecs
+
+
+async def process_file(file_name):
+    file = codecs.open(file_name, "r", "utf_8_sig")
+    contents = file.read()
+    file.close()
+    print(f"Имя файла: {file_name}")
+    print(contents)
+    await asyncio.sleep(3)
+
+
+async def main(files):
+    tasks = [process_file(file) for file in files]
+    await asyncio.gather(*tasks)
+
+
+if __name__ == "__main__":
+    files = ["Lab_on_physics.txt", "Rules_on_Kollokvium.txt", "Rules_on_Exam.txt"]
+    asyncio.run(main(files))
