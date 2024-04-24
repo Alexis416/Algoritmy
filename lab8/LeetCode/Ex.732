@@ -1,0 +1,19 @@
+import bisect
+
+
+class MyCalendarThree:
+
+    def __init__(self):
+        self.kBook = []
+
+    def book(self, start, end):
+        bisect.insort(self.kBook, [start, 1])
+        bisect.insort(self.kBook, [end, 0])
+        ans, curr = 0, 0
+        for x, y in self.kBook:
+            if y == 1:
+                curr += 1
+                ans = max(ans, curr)
+            else:
+                curr -= 1
+        return ans
