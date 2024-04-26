@@ -8,7 +8,6 @@ async def process_file(file_name):
     file.close()
     print(f"Имя файла: {file_name}")
     print(contents)
-    await asyncio.sleep(3)
 
 
 async def main(files):
