@@ -1,0 +1,27 @@
+q = ['Студент мужского пола?',
+     'Тёмные ли у человека волосы?',
+     'Носит ли загадываемый человек очки?',
+     ]
+
+people = {
+    'Владимир Опалев': ['да', 'да', 'да'],
+    'Алексей Игнатьев': ['да', 'да', 'нет'],
+    'Назар Данилов': ['да', 'нет', 'нет'],
+
+}
+people_dinamic = people.keys()
+
+for i in range(3):
+    print(q[i])
+    ans = input('Введите ответ (да/нет): ')
+    people_dinamic_new = []
+    for j in people_dinamic:
+        if people[j][i] == ans:
+            people_dinamic_new.append(j)
+    if len(people_dinamic_new) == 1:
+        print('Человек угадан! Это', people_dinamic_new[0] + '!')
+        break
+    elif len(people_dinamic_new) == 0:
+        print('Такого человека нет в группе(')
+        break
+    people_dinamic = people_dinamic_new
