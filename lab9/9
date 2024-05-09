@@ -4,7 +4,7 @@ import heapq
 def dijkstra(graph, start):
     distances = {vertex: float('inf') for vertex in graph}
     distances[start] = 0
-    queue = [(start)]
+    queue = [(0, start)]
 
     while queue:
         current_distance, current_vertex = heapq.heappop(queue)
